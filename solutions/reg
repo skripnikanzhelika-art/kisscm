@@ -1,0 +1,14 @@
+!#/bin/bash
+
+if [ -z "$1" ]; then
+	echo "Импользование: $0 <файл>"
+	exit 1
+fi
+
+src="$1"
+name=$(basename "$src")
+
+chmod +x "$src"
+sudo cp "$src" /usr/local/bin/"$name"
+
+echo "Команда $name установлена в /usr/local/bin"

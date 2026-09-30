@@ -1,0 +1,12 @@
+#!/bin/bash
+dir="$1"
+ext="$2"
+if [ -z "$dir" ] || [ -z "$ext" ]; then
+echo "Использование: $0 <каталог> <расширение>"
+exit 1
+fi
+ext="${ext#.}"
+archive="archive_${ext}.tar"
+files=$(find "$dir" -type f -name "*.${ext}")
+tar -cvf "$archive" $files
+echo "Создан архив $archive"

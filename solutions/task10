@@ -1,0 +1,7 @@
+#!/bin/bash
+dir="$1"
+if [ -z "$dir" ]; then
+echo "Использование: $0 <каталог>"
+exit 1
+fi
+find "$dir" -type f -empty -print
